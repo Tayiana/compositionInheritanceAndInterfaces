@@ -50,6 +50,32 @@ class WallServiceTest {
             data = "profile_activity",
             url = "https://github.com/"
         ),
+        arrayListOf(
+            AttachmentPhoto(type = "photo", photo = Photo(
+                id = 19,
+                ownerId = 156,
+                photo130 = "url",
+                photo604 = "")),
+            AttachmentVideo(type = "video", video = Video(
+                id = 5568,
+                ownerId = 196,
+                title = "title",
+                description = "dfgh",
+                duration = 8,
+                photo130 = "photo130",
+                photo_320 = "photo33330",
+                photo_640 = "photo_640",
+                photo_800 = "800",
+                date = 344222700,
+                addingDate = 344747700,
+                views = 589655,
+                comments = 0,
+                player = "player",
+                access_key = "fer",
+                processing = 963025,
+                live = 18,
+                upcoming = 98652,
+                isFavorite = true))),
         Geo(
             type = "",
             coordinates = "",
@@ -114,12 +140,26 @@ class WallServiceTest {
             data = "profile_activity",
             url = "https://github.com/"
         ),
+        arrayListOf(
+            AttachmentGraffiti(
+                type = "graffiti",
+                graffiti = Graffiti(
+                    id = 10,
+                    ownerId = 236,
+                    photo130 = "urlrtryry",
+                    photo604 = "")),
+            AttachmentApp(
+                type = "app",
+                app = ApplicationContent(
+                    id = 36,
+                    name = "AttachmentApp",
+                    photo130 = "url36",
+                    photo604 = "er"))),
         Geo(
             type = "",
             coordinates = "",
             place = null
         ),
-
         signerId = 777,
         copyHistory = ArrayList(),
         canPin = true,
@@ -179,6 +219,34 @@ class WallServiceTest {
             data = "profile_activity",
             url = "https://github.com/"
         ),
+        arrayListOf(
+            AttachmentPhoto(
+                type = "photo",
+                photo = Photo(
+                    id = 19,
+                    ownerId = 156,
+                    photo130 = "url",
+                    photo604 = "")),
+            AttachmentVideo(type = "video", video = Video(
+                id = 6568,
+                ownerId = 296,
+                title = "title",
+                description = "dfgh",
+                duration = 8,
+                photo130 = "photo130",
+                photo_320 = "photo33330",
+                photo_640 = "photo_640",
+                photo_800 = "800",
+                date = 344222700,
+                addingDate = 344747700,
+                views = 589655,
+                comments = 0,
+                player = "player2",
+                access_key = "fer",
+                processing = 163025,
+                live = 28,
+                upcoming = 18652,
+                isFavorite = false))),
         Geo(
             type = "",
             coordinates = "",
@@ -244,9 +312,30 @@ class WallServiceTest {
             data = "profile_activity",
             url = "https://github.com/"
         ),
+        arrayListOf(
+            AttachmentPhoto(
+                type = "photo",
+                photo = Photo(id = 19,
+                    ownerId = 156,
+                    photo130 = "url",
+                    photo604 = "")),
+            AttachmentAudio(
+                type = "audio",
+                audio = Audio(
+                    id = 53,
+                    ownerId = 200,
+                    artist = "artist",
+                    title = "title",
+                    duration = 300,
+                    url = "url",
+                    lyricsId = 19,
+                    albumId = 569,
+                    ganreId = 9,
+                    date = 1644747620,
+                    noSearch = 98562))),
         Geo(
-            type = "",
-            coordinates = "",
+            type = "Geo",
+            coordinates = "coordinates",
             place = null
         ),
 
