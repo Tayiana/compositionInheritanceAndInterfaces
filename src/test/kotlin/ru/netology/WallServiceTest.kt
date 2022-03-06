@@ -420,15 +420,18 @@ class WallServiceTest {
     }
 
     @Test
-    fun createCommentPositive() {
-        assertNotNull(createComment(firstPost, firstComment))
+    fun createPositiveComment() {
+        add(firstPost)
+        add(secondPost)
+        add(thirdPost)
+        createComment(firstComment)
     }
 
-    class PostNotFoundException(message: String) : RuntimeException(message)
-
-    @Test(expected = PostNotFoundException::class)
+    @Test(expected = WallService.PostNotFoundException::class)
     fun shouldThrow() {
-        createComment(firstPost, secondComment)
-            ?: throw PostNotFoundException("You can't add a comment to a non-existent post")
+        add(firstPost)
+        add(secondPost)
+        add(thirdPost)
+        createComment(secondComment)
     }
 }

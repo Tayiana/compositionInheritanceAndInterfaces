@@ -22,10 +22,12 @@ object WallService {
         return true
     }
 
-    fun createComment(post: Post,comment: Comment): Int? {
-        return if (comment.postId == post.id) {
-            comments += comment
-            comments.lastIndex
-        }  else null
+    class PostNotFoundException(message: String) : RuntimeException(message)
+
+    fun createComment(comment: Comment): Int? {
+        posts.find { it.id == comment.postId }
+            ?: throw PostNotFoundException("You can't add a comment to a non-existent post")
+        comments += comment
+        return comments.lastIndex
     }
 }
