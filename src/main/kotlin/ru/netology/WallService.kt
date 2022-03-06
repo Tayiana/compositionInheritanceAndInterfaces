@@ -2,6 +2,7 @@ package ru.netology
 
 object WallService {
     var posts = emptyArray<Post>()
+    var comments = emptyArray<Comment>()
 
     // метод для создания записи
     fun add(post: Post): Post {
@@ -19,5 +20,12 @@ object WallService {
         posts[postInd] = newPost
         println("обновленное значение: $newPost")
         return true
+    }
+
+    fun createComment(post: Post,comment: Comment): Int? {
+        return if (comment.postId == post.id) {
+            comments += comment
+            comments.lastIndex
+        }  else null
     }
 }

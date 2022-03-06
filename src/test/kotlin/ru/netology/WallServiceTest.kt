@@ -3,12 +3,14 @@ package ru.netology
 import org.junit.Assert.*
 import org.junit.Test
 import ru.netology.WallService.add
+import ru.netology.WallService.createComment
 
 class WallServiceTest {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comments>()
 
     val firstPost = Post(
-        id = 0,
+        id = 1,
         ownerId = 1,
         fromId = 1,
         createdBy = 85,
@@ -100,7 +102,7 @@ class WallServiceTest {
     )
 
     val secondPost = Post(
-        id = 1,
+        id = 2,
         ownerId = 222,
         fromId = 222,
         createdBy = 95,
@@ -179,7 +181,7 @@ class WallServiceTest {
     )
 
     val thirdPost = Post(
-        id = 1,
+        id = 2,
         ownerId = 333,
         fromId = 333,
         createdBy = 33,
@@ -357,6 +359,28 @@ class WallServiceTest {
         postponedId = 0
     )
 
+    val firstComment = Comment(
+        ownerId = 1,
+        postId = 1,
+        fromGroup = 36,
+        message = "Текст коммента",
+        replyToComment = 1,
+        attachments = arrayListOf(),
+        stickerId = 369,
+        guid = "guid"
+    )
+
+    val secondComment = Comment(
+        ownerId = 145,
+        postId = 145,
+        fromGroup = 3645,
+        message = "Текст коммента 2",
+        replyToComment = 1,
+        attachments = arrayListOf(),
+        stickerId = 369,
+        guid = "guid 2"
+    )
+
     @Test
     //проверка на метод добавления
     fun createNewPost() {
@@ -393,5 +417,18 @@ class WallServiceTest {
         val result = service.update(update)
         // проверяем результат (используйте assertTrue или assertFalse)
         assertFalse(result)
+    }
+
+    @Test
+    fun createCommentPositive() {
+        assertNotNull(createComment(firstPost, firstComment))
+    }
+
+    class PostNotFoundException(message: String) : RuntimeException(message)
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        createComment(firstPost, secondComment)
+            ?: throw PostNotFoundException("You can't add a comment to a non-existent post")
     }
 }
